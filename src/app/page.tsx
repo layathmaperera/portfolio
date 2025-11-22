@@ -5,6 +5,7 @@ import Skills from '@/components/sections/skills';
 import Projects from '@/components/sections/projects';
 import Contact from '@/components/sections/contact';
 import { Separator } from '@/components/ui/separator';
+import Footer from '@/components/layout/footer';
 
 export default function Home() {
   return (
@@ -24,9 +25,7 @@ export default function Home() {
             <Contact />
           </div>
         </div>
-        <footer className="py-8 text-center text-sm text-muted-foreground">
-          © {new Date().getFullYear()} Layathma Perera. All Rights Reserved.
-        </footer>
+        <Footer />
       </main>
     </div>
   );
