@@ -17,28 +17,32 @@ import {
   type SkillCategory,
 } from '@/lib/data';
 import { Search } from 'lucide-react';
+import { Button } from '../ui/button';
+import { cn } from '@/lib/utils';
+
+const skillCategories: ['All', ...SkillCategory[]] = [
+  'All',
+  'Languages',
+  'Frameworks & Libraries',
+  'Databases',
+  'Tools',
+];
 
 export default function Skills() {
   const [searchTerm, setSearchTerm] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState<
+    'All' | SkillCategory
+  >('All');
 
-  const filteredAndGroupedSkills = useMemo(() => {
-    const filtered = skillsData.filter((skill) =>
-      skill.name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-
-    return filtered.reduce((acc, skill) => {
-      const { category } = skill;
-      if (!acc[category]) {
-        acc[category] = [];
-      }
-      acc[category].push(skill);
-      return acc;
-    }, {} as Record<SkillCategory, Skill[]>);
-  }, [searchTerm]);
-
-  const categories = Object.keys(
-    filteredAndGroupedSkills
-  ) as SkillCategory[];
+  const filteredSkills = useMemo(() => {
+    return skillsData
+      .filter((skill) =>
+        selectedCategory === 'All' ? true : skill.category === selectedCategory
+      )
+      .filter((skill) =>
+        skill.name.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+  }, [searchTerm, selectedCategory]);
 
   return (
     <section id="skills" className="pt-24 lg:pt-32">
@@ -48,41 +52,50 @@ export default function Skills() {
         </h2>
       </div>
 
-      <div className="relative mb-8">
-        <Input
-          type="text"
-          placeholder="Search for a skill..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          className="pl-10"
-        />
-        <Search className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground" />
+      <div className="flex flex-col gap-4 md:flex-row md:items-center md:gap-8">
+        <div className="relative flex-1">
+          <Input
+            type="text"
+            placeholder="Search for a skill..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="pl-10"
+          />
+          <Search className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground" />
+        </div>
+        <div className="flex flex-wrap items-center gap-2">
+          {skillCategories.map((category) => (
+            <Button
+              key={category}
+              variant={selectedCategory === category ? 'default' : 'outline'}
+              size="sm"
+              onClick={() => setSelectedCategory(category)}
+            >
+              {category}
+            </Button>
+          ))}
+        </div>
       </div>
 
-      <div className="space-y-8">
-        {categories.length > 0 ? (
-          categories.map((category) => (
-            <div key={category}>
-              <h3 className="mb-4 text-lg font-semibold text-primary">
-                {category}
-              </h3>
-              <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-                {filteredAndGroupedSkills[category].map((skill: Skill) => (
-                   <Card
-                    key={skill.name}
-                    className="group flex flex-col items-center justify-center p-4 text-center transition-all hover:bg-accent hover:text-accent-foreground hover:-translate-y-1"
-                  >
-                    <skill.Icon className="h-10 w-10 text-muted-foreground transition-colors group-hover:text-accent-foreground" />
-                    <p className="mt-2 text-sm font-medium">{skill.name}</p>
-                  </Card>
-                ))}
-              </div>
-            </div>
-          ))
+      <div className="mt-8 space-y-8">
+        {filteredSkills.length > 0 ? (
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+            {filteredSkills.map((skill: Skill) => (
+              <Card
+                key={skill.name}
+                className="group flex flex-col items-center justify-center p-4 text-center transition-all hover:-translate-y-1 hover:bg-accent hover:text-accent-foreground"
+              >
+                <skill.Icon className="h-10 w-10 text-muted-foreground transition-colors group-hover:text-accent-foreground" />
+                <p className="mt-2 text-sm font-medium">{skill.name}</p>
+              </Card>
+            ))}
+          </div>
         ) : (
-          <p className="text-center text-muted-foreground">
-            No skills found.
-          </p>
+          <div className="flex h-24 items-center justify-center">
+            <p className="text-center text-muted-foreground">
+              No skills found matching your criteria.
+            </p>
+          </div>
         )}
       </div>
 
@@ -107,7 +120,7 @@ export default function Skills() {
           </div>
         </TabsContent>
         <TabsContent value="certifications">
-           <div className="mt-8 grid gap-8">
+          <div className="mt-8 grid gap-8">
             {certificationsData.map((cert) => (
               <Card key={cert.name} className="p-6">
                 <CardHeader className="p-0">
@@ -115,7 +128,7 @@ export default function Skills() {
                 </CardHeader>
                 <CardContent className="p-0 mt-2">
                   <p className="font-medium">{cert.issuer}</p>
-                   <p className="text-sm text-muted-foreground">{cert.year}</p>
+                  <p className="text-sm text-muted-foreground">{cert.year}</p>
                 </CardContent>
               </Card>
             ))}
