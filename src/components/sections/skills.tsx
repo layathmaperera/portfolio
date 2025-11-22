@@ -14,6 +14,12 @@ import {
   certificationsData,
   type Skill,
 } from '@/lib/data';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/tooltip';
 
 export default function Skills() {
   return (
@@ -24,17 +30,23 @@ export default function Skills() {
         </h2>
       </div>
 
-      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-        {skillsData.map((skill: Skill) => (
-          <Card
-            key={skill.name}
-            className="group flex flex-col items-center justify-center p-4 text-center transition-all hover:bg-accent hover:text-accent-foreground hover:-translate-y-1"
-          >
-            <skill.Icon className="h-10 w-10 text-muted-foreground transition-colors group-hover:text-accent-foreground" />
-            <p className="mt-2 text-sm font-medium">{skill.name}</p>
-          </Card>
-        ))}
-      </div>
+      <TooltipProvider>
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+          {skillsData.map((skill: Skill) => (
+            <Tooltip key={skill.name}>
+              <TooltipTrigger asChild>
+                <Card className="group flex flex-col items-center justify-center p-4 text-center transition-all hover:bg-accent hover:text-accent-foreground hover:-translate-y-1">
+                  <skill.Icon className="h-10 w-10 text-muted-foreground transition-colors group-hover:text-accent-foreground" />
+                  <p className="mt-2 text-sm font-medium">{skill.name}</p>
+                </Card>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>{skill.category}</p>
+              </TooltipContent>
+            </Tooltip>
+          ))}
+        </div>
+      </TooltipProvider>
 
       <Tabs defaultValue="education" className="mt-12 w-full">
         <TabsList className="grid w-full grid-cols-2">

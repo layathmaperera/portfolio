@@ -12,7 +12,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { projectsData } from '@/lib/data';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { Library, Github, ArrowRight } from 'lucide-react';
+import { Play, Github, ArrowRight } from 'lucide-react';
 
 export default function Projects() {
   return (
@@ -22,7 +22,7 @@ export default function Projects() {
           Projects
         </h2>
       </div>
-      <div className="grid grid-cols-1 gap-8">
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
         {projectsData.map((project) => {
           const image = PlaceHolderImages.find(
             (img) => img.id === project.image
@@ -30,9 +30,9 @@ export default function Projects() {
           return (
             <Card
               key={project.title}
-              className="group flex flex-col overflow-hidden transition-shadow hover:shadow-lg sm:flex-row"
+              className="group flex flex-col overflow-hidden transition-shadow hover:shadow-lg"
             >
-              <div className="relative w-full sm:w-1/3 aspect-video sm:aspect-auto">
+               <div className="relative w-full aspect-video">
                 {image && (
                   <Image
                     src={image.imageUrl}
@@ -66,11 +66,11 @@ export default function Projects() {
                       GitHub
                     </Link>
                   </Button>
-                  {project.links.diagram && (
+                  {project.links.demo && (
                      <Button size="sm" asChild>
-                      <Link href={project.links.diagram} target="_blank">
-                        <Library className="mr-2 h-4 w-4" />
-                        Architecture
+                      <Link href={project.links.demo} target="_blank">
+                        <Play className="mr-2 h-4 w-4" />
+                        Demo
                       </Link>
                     </Button>
                   )}

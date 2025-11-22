@@ -1,4 +1,5 @@
 import Header from '@/components/layout/header';
+import Hero from '@/components/sections/hero';
 import About from '@/components/sections/about';
 import Skills from '@/components/sections/skills';
 import Projects from '@/components/sections/projects';
@@ -11,7 +12,8 @@ export default function Home() {
     <div className="flex min-h-screen w-full flex-col">
       <Header />
       <main className="flex flex-col">
-        <div className="flex-1">
+        <Hero />
+        <div id="content" className="flex-1">
           <div className="container mx-auto max-w-5xl px-4 md:px-8">
             <About />
             <Separator className="my-16" />
@@ -25,7 +27,7 @@ export default function Home() {
           </div>
         </div>
         <footer className="py-8 text-center text-sm text-muted-foreground">
-          © {new Date().getFullYear()} Alex Doe. All Rights Reserved.
+          © {new Date().getFullYear()} Layathma Perera. All Rights Reserved.
         </footer>
       </main>
     </div>

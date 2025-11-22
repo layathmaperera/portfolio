@@ -1,12 +1,21 @@
 import type { LucideIcon } from 'lucide-react';
 import {
-  Cloud,
-  Container,
-  Layers,
-  Workflow,
-  Gauge,
+  BrainCircuit,
   Database,
+  Code,
+  GitBranch,
+  Tensorflow,
+  PyTorch,
+  Bot,
+  Layers3,
 } from 'lucide-react';
+
+// A helper function to easily define a skill
+const createSkill = (
+  name: string,
+  category: SkillCategory,
+  Icon: LucideIcon
+) => ({ name, category, Icon });
 
 export type Project = {
   title: string;
@@ -15,11 +24,11 @@ export type Project = {
   image: string;
   links: {
     github: string;
-    diagram?: string;
+    demo?: string;
   };
 };
 
-export type SkillCategory = 'Cloud' | 'Containerization' | 'IaC' | 'CI/CD' | 'Monitoring';
+export type SkillCategory = 'Languages' | 'Frameworks' | 'ML/AI' | 'Tools';
 
 export type Skill = {
   name: string;
@@ -48,107 +57,113 @@ export type Certification = {
 
 export const projectsData: Project[] = [
   {
-    title: 'Multi-Region Serverless API',
+    title: 'Intelligent Document Analyzer',
     description:
-      'Designed and deployed a highly available, multi-region serverless API on AWS using API Gateway, Lambda, and DynamoDB. Managed entirely through Terraform.',
-    tags: ['AWS', 'Serverless', 'Terraform', 'API Gateway', 'DynamoDB'],
-    image: 'project-k8s',
+      'A web application that uses NLP to extract key information, summarize, and classify uploaded documents. Built with React, FastAPI, and spaCy.',
+    tags: ['React', 'Python', 'FastAPI', 'spaCy', 'NLP'],
+    image: 'project-k8s', // Placeholder
     links: {
       github: '#',
-      diagram: '#',
+      demo: '#',
     },
   },
   {
-    title: 'Automated K8s Cluster Provisioning',
+    title: 'Sales Forecasting Tool',
     description:
-      'Built a reusable Terraform module to provision production-ready EKS clusters, complete with automated node scaling, monitoring via Prometheus, and logging.',
-    tags: ['Kubernetes', 'Terraform', 'AWS EKS', 'Prometheus'],
-    image: 'project-monitoring',
+      'Developed a time-series forecasting model using Prophet to predict future product sales, integrated into a Streamlit dashboard for business analysts.',
+    tags: ['Python', 'Prophet', 'Pandas', 'Streamlit'],
+    image: 'project-monitoring', // Placeholder
     links: {
       github: '#',
-      diagram: '#',
+      demo: '#',
     },
   },
   {
-    title: 'End-to-End CI/CD Pipeline for Microservices',
+    title: 'Customer Churn Prediction API',
     description:
-      'Architected a complete CI/CD pipeline using GitHub Actions that automates building, testing, and deploying a suite of microservices to Kubernetes with zero downtime.',
-    tags: ['CI/CD', 'GitHub Actions', 'Docker', 'Kubernetes', 'Microservices'],
-    image: 'project-iac',
+      'Built a REST API with Flask that serves a pre-trained XGBoost model to predict customer churn in real-time, deployed via Docker.',
+    tags: ['Flask', 'XGBoost', 'Scikit-learn', 'Docker'],
+    image: 'project-iac', // Placeholder
     links: {
       github: '#',
-      diagram: '#',
+      demo: '#',
     },
   },
 ];
 
 export const skillsData: Skill[] = [
-  { name: 'AWS', category: 'Cloud', Icon: Cloud },
-  { name: 'Google Cloud', category: 'Cloud', Icon: Cloud },
-  { name: 'Azure', category: 'Cloud', Icon: Cloud },
-  { name: 'Docker', category: 'Containerization', Icon: Container },
-  { name: 'Kubernetes', category: 'Containerization', Icon: Container },
-  { name: 'Helm', category: 'Containerization', Icon: Container },
-  { name: 'Terraform', category: 'IaC', Icon: Layers },
-  { name: 'Ansible', category: 'IaC', Icon: Layers },
-  { name: 'CloudFormation', category: 'IaC', Icon: Layers },
-  { name: 'Jenkins', category: 'CI/CD', Icon: Workflow },
-  { name: 'GitHub Actions', category: 'CI/CD', Icon: Workflow },
-  { name: 'GitLab CI', category: 'CI/CD', Icon: Workflow },
-  { name: 'Prometheus', category: 'Monitoring', Icon: Gauge },
-  { name: 'Grafana', category: 'Monitoring', Icon: Gauge },
-  { name: 'ELK Stack', category: 'Monitoring', Icon: Database },
+  createSkill('Python', 'Languages', Code),
+  createSkill('JavaScript', 'Languages', Code),
+  createSkill('SQL', 'Languages', Database),
+  createSkill('TypeScript', 'Languages', Code),
+  createSkill('React', 'Frameworks', Code),
+  createSkill('Next.js', 'Frameworks', Code),
+  createSkill('Node.js', 'Frameworks', Code),
+  createSkill('FastAPI', 'Frameworks', Code),
+  createSkill('PyTorch', 'ML/AI', BrainCircuit),
+  createSkill('TensorFlow', 'ML/AI', BrainCircuit),
+  createSkill('Scikit-learn', 'ML/AI', BrainCircuit),
+  createSkill('Hugging Face', 'ML/AI', Bot),
+  createSkill('Docker', 'Tools', Layers3),
+  createSkill('Git', 'Tools', GitBranch),
+  createSkill('PostgreSQL', 'Tools', Database),
 ];
+
 
 export const educationData: Education[] = [
     {
-        school: 'University of Technology',
+        school: 'University of Colombo School of Computing',
         degree: 'M.S. in Computer Science',
-        year: '2020-2022',
+        year: '2022-2024',
     },
     {
-        school: 'State University',
-        degree: 'B.S. in Information Technology',
-        year: '2016-2020',
+        school: 'University of Moratuwa',
+        degree: 'B.S. in Computer Science & Engineering',
+        year: '2018-2022',
+    },
+    {
+        school: 'Royal College, Colombo',
+        degree: 'High School Diploma',
+        year: '2004-2017',
     }
 ];
 
 export const certificationsData: Certification[] = [
     {
-        name: 'AWS Certified DevOps Engineer - Professional',
-        issuer: 'Amazon Web Services',
+        name: 'TensorFlow Developer Certificate',
+        issuer: 'Google',
         year: '2023',
     },
     {
-        name: 'Certified Kubernetes Administrator (CKA)',
-        issuer: 'Cloud Native Computing Foundation',
+        name: 'Deep Learning Specialization',
+        issuer: 'DeepLearning.AI (Coursera)',
         year: '2022',
     },
     {
-        name: 'Terraform Associate',
-        issuer: 'HashiCorp',
-        year: '2021',
+        name: 'AWS Certified Machine Learning - Specialty',
+        issuer: 'Amazon Web Services',
+        year: '2023',
     }
 ];
 
 
 export const testimonialsData: Testimonial[] = [
   {
-    name: 'Jane Smith',
-    company: 'Tech Solutions Inc.',
+    name: 'Dr. Emily Carter',
+    company: 'Lead AI Researcher, Innovatech',
     image: 'testimonial-1',
-    text: 'Alex revolutionized our deployment process. The automated CI/CD pipeline they built saved us countless hours and dramatically reduced our deployment errors. A true professional.',
+    text: "Layathma's ability to translate complex machine learning concepts into practical, efficient code is exceptional. Their contribution was pivotal to our project's success.",
   },
   {
-    name: 'John Miller',
-    company: 'Creative Agency LLC',
+    name: 'Michael Chen',
+    company: 'Head of Engineering, DataDriven Co.',
     image: 'testimonial-2',
-    text: 'The cloud infrastructure Alex designed for us is rock-solid. Scalable, secure, and cost-effective. Their expertise in AWS and Terraform is top-notch.',
+    text: 'A truly skilled engineer. Layathma developed a robust data pipeline and a highly accurate prediction model that has already shown significant business impact.',
   },
   {
-    name: 'Sarah Chen',
-    company: 'Innovate Startups',
+    name: 'Sarah Jones',
+    company: 'Product Manager, TechForward',
     image: 'testimonial-3',
-    text: "Alex's ability to diagnose and solve complex infrastructure issues is incredible. They are a fantastic team player and a huge asset to any engineering organization.",
+    text: "Working with Layathma is a pleasure. They are a proactive, communicative, and talented engineer who consistently delivers high-quality work and valuable insights.",
   },
 ];

@@ -12,17 +12,15 @@ export default function About() {
             About Me
           </h2>
           <p className="mt-6 text-lg text-foreground">
-            Hi, I'm Alex Doe. I'm a DevOps and Cloud Engineer passionate about
-            building resilient, scalable, and secure infrastructure. My focus
-            is on automating everything from code integration to production
-            deployment, ensuring maximum reliability and uptime.
+            Hi, I'm Layathma Perera. I'm a Software Engineer passionate about
+            crafting smart, efficient solutions and learning how AI and ML shape
+            the future of technology.
           </p>
           <p className="mt-4 text-lg text-muted-foreground">
-            With extensive experience across AWS, Google Cloud, and Azure, I have
-            a proven track record of reducing deployment times, optimizing cloud
-            costs, and managing complex Kubernetes clusters in high-traffic
-            environments. I thrive on bridging the gap between development and
-            operations to foster a culture of collaboration and efficiency.
+            I have a strong foundation in building scalable and performant web
+            applications, with a keen interest in applying machine learning
+            models to solve real-world problems. I enjoy working on all aspects
+            of the development lifecycle, from conceptualization to deployment.
           </p>
         </div>
         <div className="order-1 flex justify-center lg:order-2">

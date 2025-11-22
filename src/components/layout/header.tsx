@@ -16,7 +16,6 @@ const navItems = [
   { name: 'Projects', href: '#projects' },
   { name: 'Skills', href: '#skills' },
   { name: 'Testimonials', href: '#testimonials' },
-  { name: 'Hire Me', href: '#contact' },
 ];
 
 export default function Header() {
@@ -38,10 +37,10 @@ export default function Header() {
           : 'bg-transparent'
       }`}
     >
-      <div className="container mx-auto flex h-16 max-w-5xl items-center justify-between px-4 md:px-8">
+      <div className="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:px-8">
         <Link href="/" className="flex items-center gap-2">
           <Code className="h-6 w-6" />
-          <span className="text-lg font-semibold">Alex Doe</span>
+          <span className="text-lg font-semibold">Layathma Perera</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -57,6 +56,12 @@ export default function Header() {
           ))}
         </nav>
 
+        <div className="hidden items-center gap-2 md:flex">
+          <Button asChild>
+            <Link href="#contact">Hire Me</Link>
+          </Button>
+        </div>
+
         {/* Mobile Navigation */}
         <div className="md:hidden">
           <Sheet>
@@ -71,7 +76,7 @@ export default function Header() {
                 <div className="mb-8">
                   <Link href="/" className="flex items-center gap-2">
                     <Code className="h-6 w-6" />
-                    <span className="text-lg font-semibold">Alex Doe</span>
+                    <span className="text-lg font-semibold">Layathma Perera</span>
                   </Link>
                 </div>
                 <nav className="flex flex-col gap-6">
@@ -85,6 +90,14 @@ export default function Header() {
                       </Link>
                     </SheetClose>
                   ))}
+                  <SheetClose asChild>
+                    <Link
+                      href="#contact"
+                      className="text-lg font-medium text-muted-foreground transition-colors hover:text-foreground"
+                    >
+                      Hire Me
+                    </Link>
+                  </SheetClose>
                 </nav>
                 <div className="mt-auto flex flex-col gap-4">
                   <Button size="sm" variant="secondary" asChild>
