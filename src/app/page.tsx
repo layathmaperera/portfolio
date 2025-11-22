@@ -3,7 +3,6 @@ import Hero from '@/components/sections/hero';
 import About from '@/components/sections/about';
 import Skills from '@/components/sections/skills';
 import Projects from '@/components/sections/projects';
-import Testimonials from '@/components/sections/testimonials';
 import Contact from '@/components/sections/contact';
 import { Separator } from '@/components/ui/separator';
 
@@ -20,8 +19,6 @@ export default function Home() {
             <Projects />
             <Separator className="my-16" />
             <Skills />
-            <Separator className="my-16" />
-            <Testimonials />
             <Separator className="my-16" />
             <Contact />
           </div>

@@ -36,13 +36,6 @@ export type Skill = {
   Icon: LucideIcon;
 };
 
-export type Testimonial = {
-  name: string;
-  company: string;
-  image: string;
-  text: string;
-};
-
 export type Education = {
   school: string;
   degree: string;
@@ -144,26 +137,4 @@ export const certificationsData: Certification[] = [
         issuer: 'Amazon Web Services',
         year: '2023',
     }
-];
-
-
-export const testimonialsData: Testimonial[] = [
-  {
-    name: 'Dr. Emily Carter',
-    company: 'Lead AI Researcher, Innovatech',
-    image: 'testimonial-1',
-    text: "Layathma's ability to translate complex machine learning concepts into practical, efficient code is exceptional. Their contribution was pivotal to our project's success.",
-  },
-  {
-    name: 'Michael Chen',
-    company: 'Head of Engineering, DataDriven Co.',
-    image: 'testimonial-2',
-    text: 'A truly skilled engineer. Layathma developed a robust data pipeline and a highly accurate prediction model that has already shown significant business impact.',
-  },
-  {
-    name: 'Sarah Jones',
-    company: 'Product Manager, TechForward',
-    image: 'testimonial-3',
-    text: "Working with Layathma is a pleasure. They are a proactive, communicative, and talented engineer who consistently delivers high-quality work and valuable insights.",
-  },
 ];

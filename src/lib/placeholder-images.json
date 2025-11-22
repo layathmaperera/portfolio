@@ -23,24 +23,6 @@
       "description": "Abstract image for a portfolio project.",
       "imageUrl": "https://images.unsplash.com/photo-1763568258533-d0597f86ce62?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhdXRvbWF0aW9uJTIwY29kZXxlbnwwfHx8fDE3NjM4MDQzMzV8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "automation code"
-    },
-    {
-      "id": "testimonial-1",
-      "description": "Headshot of a client.",
-      "imageUrl": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjM3NjE4ODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "professional portrait"
-    },
-    {
-      "id": "testimonial-2",
-      "description": "Headshot of a client.",
-      "imageUrl": "https://images.unsplash.com/photo-1595211877493-41a4e5f236b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjM3NjE4ODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "professional portrait"
-    },
-    {
-      "id": "testimonial-3",
-      "description": "Headshot of a client.",
-      "imageUrl": "https://images.unsplash.com/photo-1544168190-79c17527004f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cHJvZmVzc2lvbmFsJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzYzNzYxODgwfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "professional portrait"
     }
   ]
 }
