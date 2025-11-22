@@ -12,7 +12,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { projectsData } from '@/lib/data';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { ExternalLink, Github } from 'lucide-react';
+import { Library, Github } from 'lucide-react';
 
 export default function Projects() {
   return (
@@ -20,10 +20,10 @@ export default function Projects() {
       <div className="container mx-auto max-w-screen-2xl px-4">
         <div className="mb-12 max-w-xl">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-            Featured Projects
+            Infrastructure Showcases
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            A selection of my work. I'm always learning and building.
+            A selection of my work, highlighting architecture and automation.
           </p>
         </div>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -69,11 +69,11 @@ export default function Projects() {
                       GitHub
                     </Link>
                   </Button>
-                  {project.links.live && (
+                  {project.links.diagram && (
                     <Button asChild>
-                      <Link href={project.links.live} target="_blank">
-                        <ExternalLink className="mr-2 h-4 w-4" />
-                        Live Demo
+                      <Link href={project.links.diagram} target="_blank">
+                        <Library className="mr-2 h-4 w-4" />
+                        Architecture
                       </Link>
                     </Button>
                   )}

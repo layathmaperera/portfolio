@@ -2,13 +2,13 @@
 
 import React, { useState, useMemo } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { skillsData, type SkillCategory } from '@/lib/data';
+import { skillsData, type Skill, type SkillCategory } from '@/lib/data';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Search } from 'lucide-react';
 import { Badge } from '../ui/badge';
 
-const categories: SkillCategory[] = ['Cloud', 'Containers', 'IaC', 'CI/CD', 'Tools'];
+const categories: SkillCategory[] = ['Cloud', 'Containerization', 'IaC', 'CI/CD', 'Monitoring'];
 
 export default function Skills() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -67,7 +67,7 @@ export default function Skills() {
         </div>
 
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
-          {filteredSkills.map((skill) => (
+          {filteredSkills.map((skill: Skill) => (
             <Card
               key={skill.name}
               className="group flex flex-col items-center justify-center p-4 text-center transition-colors hover:bg-accent hover:text-accent-foreground"

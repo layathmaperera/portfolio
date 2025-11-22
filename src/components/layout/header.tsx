@@ -12,9 +12,11 @@ import {
 } from '@/components/ui/sheet';
 
 const navItems = [
+  { name: 'About', href: '#about' },
   { name: 'Projects', href: '#projects' },
-  { name: 'Testimonials', href: '#testimonials' },
   { name: 'Skills', href: '#skills' },
+  { name: 'Blog', href: '#blog' },
+  { name: 'Testimonials', href: '#testimonials' },
   { name: 'Contact', href: '#contact' },
 ];
 

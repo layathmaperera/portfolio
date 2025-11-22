@@ -10,6 +10,7 @@ import {
   Server,
   Gauge,
   Code,
+  Database,
 } from 'lucide-react';
 
 export type Project = {
@@ -19,11 +20,11 @@ export type Project = {
   image: string;
   links: {
     github: string;
-    live?: string;
+    diagram?: string;
   };
 };
 
-export type SkillCategory = 'Cloud' | 'Containers' | 'IaC' | 'CI/CD' | 'Tools';
+export type SkillCategory = 'Cloud' | 'Containerization' | 'IaC' | 'CI/CD' | 'Monitoring';
 
 export type Skill = {
   name: string;
@@ -38,55 +39,64 @@ export type Testimonial = {
   text: string;
 };
 
+export type BlogPost = {
+  title: string;
+  description: string;
+  link: string;
+};
+
 export const projectsData: Project[] = [
   {
-    title: 'Kubernetes Infrastructure',
+    title: 'Multi-Region Serverless API',
     description:
-      'Designed and deployed a highly available Kubernetes cluster on AWS using EKS, managing it with Terraform and Helm charts.',
-    tags: ['AWS', 'Kubernetes', 'Terraform', 'Helm', 'EKS'],
+      'Designed and deployed a highly available, multi-region serverless API on AWS using API Gateway, Lambda, and DynamoDB. Managed entirely through Terraform.',
+    tags: ['AWS', 'Serverless', 'Terraform', 'API Gateway', 'DynamoDB'],
     image: 'project-k8s',
     links: {
       github: '#',
+      diagram: '#',
     },
   },
   {
-    title: 'CI/CD Pipeline Automation',
+    title: 'Automated K8s Cluster Provisioning',
     description:
-      'Built a full CI/CD pipeline for a microservices application using GitHub Actions, Docker, and Canary deployments to production.',
-    tags: ['GitHub Actions', 'Docker', 'CI/CD', 'Canary'],
+      'Built a reusable Terraform module to provision production-ready EKS clusters, complete with automated node scaling, monitoring via Prometheus, and logging.',
+    tags: ['Kubernetes', 'Terraform', 'AWS EKS', 'Prometheus'],
     image: 'project-monitoring',
     links: {
       github: '#',
+      diagram: '#',
     },
   },
   {
-    title: 'Infrastructure as Code',
+    title: 'End-to-End CI/CD Pipeline for Microservices',
     description:
-      'Managed all cloud resources for a SaaS platform using Terraform, enabling rapid environment provisioning and consistent deployments.',
-    tags: ['Terraform', 'GCP', 'Infrastructure as Code', 'SaaS'],
+      'Architected a complete CI/CD pipeline using GitHub Actions that automates building, testing, and deploying a suite of microservices to Kubernetes with zero downtime.',
+    tags: ['CI/CD', 'GitHub Actions', 'Docker', 'Kubernetes', 'Microservices'],
     image: 'project-iac',
     links: {
       github: '#',
+      diagram: '#',
     },
   },
 ];
 
 export const skillsData: Skill[] = [
   { name: 'AWS', category: 'Cloud', Icon: Cloud },
-  { name: 'GCP', category: 'Cloud', Icon: Cloud },
+  { name: 'Google Cloud', category: 'Cloud', Icon: Cloud },
   { name: 'Azure', category: 'Cloud', Icon: Cloud },
-  { name: 'Docker', category: 'Containers', Icon: Container },
-  { name: 'Kubernetes', category: 'Containers', Icon: Container },
+  { name: 'Docker', category: 'Containerization', Icon: Container },
+  { name: 'Kubernetes', category: 'Containerization', Icon: Container },
+  { name: 'Helm', category: 'Containerization', Icon: Container },
   { name: 'Terraform', category: 'IaC', Icon: Layers },
   { name: 'Ansible', category: 'IaC', Icon: Layers },
-  { name: 'GitHub Actions', category: 'CI/CD', Icon: Workflow },
+  { name: 'CloudFormation', category: 'IaC', Icon: Layers },
   { name: 'Jenkins', category: 'CI/CD', Icon: Workflow },
-  { name: 'Git', category: 'Tools', Icon: GitBranch },
-  { name: 'Prometheus', category: 'Tools', Icon: Gauge },
-  { name: 'Grafana', category: 'Tools', Icon: Gauge },
-  { name: 'Bash', category: 'Tools', Icon: Terminal },
-  { name: 'Python', category: 'Tools', Icon: Code },
-  { name: 'Go', category: 'Tools', Icon: Code },
+  { name: 'GitHub Actions', category: 'CI/CD', Icon: Workflow },
+  { name: 'GitLab CI', category: 'CI/CD', Icon: Workflow },
+  { name: 'Prometheus', category: 'Monitoring', Icon: Gauge },
+  { name: 'Grafana', category: 'Monitoring', Icon: Gauge },
+  { name: 'ELK Stack', category: 'Monitoring', Icon: Database },
 ];
 
 export const testimonialsData: Testimonial[] = [
@@ -110,5 +120,20 @@ export const testimonialsData: Testimonial[] = [
   },
 ];
 
-// Blog data is no longer used
-export const blogPostsData: any[] = [];
+export const blogPostsData: BlogPost[] = [
+  {
+    title: 'How I Reduced AWS Costs by 40%',
+    description: 'A deep dive into the strategies and tools used to optimize cloud spending without sacrificing performance.',
+    link: '#',
+  },
+  {
+    title: 'Zero-Downtime Deployments Strategy',
+    description: 'Exploring blue-green and canary deployment techniques for ensuring seamless updates in a microservices architecture.',
+    link: '#',
+  },
+  {
+    title: 'Best Practices for Securing S3 Buckets',
+    description: 'A comprehensive guide to locking down Amazon S3 storage to prevent common security vulnerabilities.',
+    link: '#',
+  },
+];
