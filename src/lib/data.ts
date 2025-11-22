@@ -26,7 +26,7 @@ export type Project = {
   };
 };
 
-export type SkillCategory = 'Languages' | 'Frameworks' | 'Databases' | 'Tools' | 'Libraries';
+export type SkillCategory = 'Languages' | 'Frameworks & Libraries' | 'Databases' | 'Tools';
 
 export type Skill = {
   name: string;
@@ -73,7 +73,7 @@ export const projectsData: Project[] = [
     title: 'Customer Churn Prediction API',
     description:
       'Built a REST API with Flask that serves a pre-trained XGBoost model to predict customer churn in real-time, deployed via Docker.',
-    tags: ['Flask', 'XGBoost', 'Scikit-learn', 'Docker'],
+    tags: ['Flask', 'XGBoost', 'Python'],
     image: 'project-iac', // Placeholder
     links: {
       github: '#',
@@ -92,12 +92,12 @@ export const skillsData: Skill[] = [
   createSkill('C++', 'Languages', Code),
   createSkill('HTML', 'Languages', Code),
   createSkill('CSS', 'Languages', Code),
-  createSkill('SQL', 'Databases', Database),
+  createSkill('SQL', 'Languages', Database),
+  createSkill('React', 'Frameworks & Libraries', Code),
+  createSkill('Next.js', 'Frameworks & Libraries', Code),
+  createSkill('Node.js', 'Frameworks & Libraries', Code),
+  createSkill('Bootstrap', 'Frameworks & Libraries', Layers3),
   createSkill('MongoDB', 'Databases', Database),
-  createSkill('React', 'Frameworks', Code),
-  createSkill('Next.js', 'Frameworks', Code),
-  createSkill('Node.js', 'Frameworks', Code),
-  createSkill('Bootstrap', 'Frameworks', Layers3),
   createSkill('Git', 'Tools', GitBranch),
 ];
 
