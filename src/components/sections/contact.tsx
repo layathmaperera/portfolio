@@ -1,6 +1,7 @@
 'use client';
 
-import { useFormState, useFormStatus } from 'react-dom';
+import { useActionState } from 'react';
+import { useFormStatus } from 'react-dom';
 import { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -9,7 +10,7 @@ import { Label } from '@/components/ui/label';
 import { submitContactForm, type FormState } from '@/lib/actions';
 import { useToast } from '@/hooks/use-toast';
 import { Send, Loader2 } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '../ui/card';
+import { Card, CardContent } from '../ui/card';
 
 function SubmitButton() {
   const { pending } = useFormStatus();
@@ -33,7 +34,7 @@ function SubmitButton() {
 
 export default function Contact() {
   const initialState: FormState = { message: '', success: false };
-  const [state, formAction] = useFormState(submitContactForm, initialState);
+  const [state, formAction] = useActionState(submitContactForm, initialState);
   const { toast } = useToast();
   const formRef = useRef<HTMLFormElement>(null);
 
