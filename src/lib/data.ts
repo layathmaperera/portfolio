@@ -1,15 +1,10 @@
 import type { LucideIcon } from 'lucide-react';
 import {
-  GitBranch,
   Cloud,
-  Layers,
   Container,
-  Terminal,
+  Layers,
   Workflow,
-  ShieldCheck,
-  Server,
   Gauge,
-  Code,
   Database,
 } from 'lucide-react';
 
@@ -39,10 +34,16 @@ export type Testimonial = {
   text: string;
 };
 
-export type BlogPost = {
-  title: string;
-  description: string;
-  link: string;
+export type Education = {
+  school: string;
+  degree: string;
+  year: string;
+};
+
+export type Certification = {
+  name: string;
+  issuer: string;
+  year: string;
 };
 
 export const projectsData: Project[] = [
@@ -99,6 +100,38 @@ export const skillsData: Skill[] = [
   { name: 'ELK Stack', category: 'Monitoring', Icon: Database },
 ];
 
+export const educationData: Education[] = [
+    {
+        school: 'University of Technology',
+        degree: 'M.S. in Computer Science',
+        year: '2020-2022',
+    },
+    {
+        school: 'State University',
+        degree: 'B.S. in Information Technology',
+        year: '2016-2020',
+    }
+];
+
+export const certificationsData: Certification[] = [
+    {
+        name: 'AWS Certified DevOps Engineer - Professional',
+        issuer: 'Amazon Web Services',
+        year: '2023',
+    },
+    {
+        name: 'Certified Kubernetes Administrator (CKA)',
+        issuer: 'Cloud Native Computing Foundation',
+        year: '2022',
+    },
+    {
+        name: 'Terraform Associate',
+        issuer: 'HashiCorp',
+        year: '2021',
+    }
+];
+
+
 export const testimonialsData: Testimonial[] = [
   {
     name: 'Jane Smith',
@@ -117,23 +150,5 @@ export const testimonialsData: Testimonial[] = [
     company: 'Innovate Startups',
     image: 'testimonial-3',
     text: "Alex's ability to diagnose and solve complex infrastructure issues is incredible. They are a fantastic team player and a huge asset to any engineering organization.",
-  },
-];
-
-export const blogPostsData: BlogPost[] = [
-  {
-    title: 'How I Reduced AWS Costs by 40%',
-    description: 'A deep dive into the strategies and tools used to optimize cloud spending without sacrificing performance.',
-    link: '#',
-  },
-  {
-    title: 'Zero-Downtime Deployments Strategy',
-    description: 'Exploring blue-green and canary deployment techniques for ensuring seamless updates in a microservices architecture.',
-    link: '#',
-  },
-  {
-    title: 'Best Practices for Securing S3 Buckets',
-    description: 'A comprehensive guide to locking down Amazon S3 storage to prevent common security vulnerabilities.',
-    link: '#',
   },
 ];

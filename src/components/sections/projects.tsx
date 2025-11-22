@@ -12,7 +12,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { projectsData } from '@/lib/data';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { Library, Github, ExternalLink } from 'lucide-react';
+import { Library, Github, ArrowRight } from 'lucide-react';
 
 export default function Projects() {
   return (
@@ -79,6 +79,14 @@ export default function Projects() {
             </Card>
           );
         })}
+      </div>
+       <div className="mt-12 flex justify-center">
+        <Button asChild variant="outline">
+          <Link href="#" target="_blank">
+            Explore All Projects on GitHub
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </Link>
+        </Button>
       </div>
     </section>
   );

@@ -1,17 +1,26 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { skillsData, type Skill, type SkillCategory } from '@/lib/data';
-
-const categories: SkillCategory[] = ['Cloud', 'Containerization', 'IaC', 'CI/CD', 'Monitoring'];
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from '@/components/ui/tabs';
+import {
+  skillsData,
+  educationData,
+  certificationsData,
+  type Skill,
+} from '@/lib/data';
 
 export default function Skills() {
   return (
     <section id="skills" className="pt-24 lg:pt-32">
-       <div className="mb-12">
+      <div className="mb-12">
         <h2 className="text-xl font-bold uppercase tracking-widest text-muted-foreground">
-          Skills
+          Skills, Education & Certifications
         </h2>
       </div>
 
@@ -26,6 +35,43 @@ export default function Skills() {
           </Card>
         ))}
       </div>
+
+      <Tabs defaultValue="education" className="mt-12 w-full">
+        <TabsList className="grid w-full grid-cols-2">
+          <TabsTrigger value="education">Education</TabsTrigger>
+          <TabsTrigger value="certifications">Certifications</TabsTrigger>
+        </TabsList>
+        <TabsContent value="education">
+          <div className="mt-8 grid gap-8">
+            {educationData.map((edu) => (
+              <Card key={edu.school} className="p-6">
+                <CardHeader className="p-0">
+                  <CardTitle className="text-base">{edu.degree}</CardTitle>
+                </CardHeader>
+                <CardContent className="p-0 mt-2">
+                  <p className="font-medium">{edu.school}</p>
+                  <p className="text-sm text-muted-foreground">{edu.year}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </TabsContent>
+        <TabsContent value="certifications">
+           <div className="mt-8 grid gap-8">
+            {certificationsData.map((cert) => (
+              <Card key={cert.name} className="p-6">
+                <CardHeader className="p-0">
+                  <CardTitle className="text-base">{cert.name}</CardTitle>
+                </CardHeader>
+                <CardContent className="p-0 mt-2">
+                  <p className="font-medium">{cert.issuer}</p>
+                   <p className="text-sm text-muted-foreground">{cert.year}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </TabsContent>
+      </Tabs>
     </section>
   );
 }

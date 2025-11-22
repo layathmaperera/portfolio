@@ -60,7 +60,7 @@ export default function Contact() {
     <section id="contact" className="py-24 lg:py-32">
        <div className="mb-12">
         <h2 className="text-xl font-bold uppercase tracking-widest text-muted-foreground">
-          Contact
+          Hire Me
         </h2>
       </div>
         <Card className="border bg-card">
