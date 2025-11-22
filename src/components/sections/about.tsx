@@ -25,14 +25,16 @@ export default function About() {
         </div>
         <div className="order-1 flex justify-center lg:order-2">
           {headshot && (
-            <div className="relative h-64 w-64 lg:h-80 lg:w-80">
-              <Image
+             <div className="relative flex h-64 w-64 items-center justify-center lg:h-80 lg:w-80">
+              <div className="absolute inset-0.5 animate-pulse rounded-full bg-primary/50 blur-xl"></div>
+              <div className="absolute inset-2 animate-pulse rounded-full bg-primary/30 blur-2xl"></div>
+               <Image
                 src={headshot.imageUrl}
                 alt={headshot.description}
                 data-ai-hint={headshot.imageHint}
                 fill
                 priority
-                className="rounded-full border-4 border-primary object-cover shadow-lg"
+                className="relative z-10 rounded-full border-4 border-primary object-cover shadow-lg"
               />
             </div>
           )}

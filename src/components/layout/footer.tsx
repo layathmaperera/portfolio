@@ -2,8 +2,6 @@
 
 import Link from 'next/link';
 import { Github, Linkedin, Mail, MapPin } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 
 const navItems = [
   { name: 'About', href: '#about' },
@@ -16,7 +14,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-border/40 bg-background/95 backdrop-blur-sm">
       <div className="container mx-auto max-w-7xl px-4 py-12">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {/* Column 1: Bio & Socials */}
           <div className="flex flex-col gap-4">
             <h3 className="text-2xl font-bold text-primary">Layathma Perera</h3>
@@ -71,21 +69,12 @@ export default function Footer() {
                 <MapPin className="h-4 w-4" />
                 <span>Colombo, Sri Lanka</span>
               </div>
+              <Link href="#contact" className="flex items-center gap-2 transition-colors hover:text-foreground">
+                 <span>Get in touch</span>
+              </Link>
             </div>
           </div>
 
-          {/* Column 4: Stay Updated */}
-          <div className="flex flex-col gap-4">
-            <h4 className="text-lg font-semibold">Stay Updated</h4>
-            <p className="text-sm text-muted-foreground">
-              Subscribe to get the latest insights on AI, ML, and software
-              development.
-            </p>
-            <div className="flex w-full max-w-sm items-center space-x-2">
-              <Input type="email" placeholder="Enter your email" />
-              <Button type="submit">Subscribe</Button>
-            </div>
-          </div>
         </div>
       </div>
       <div className="border-t border-border/40 py-6">

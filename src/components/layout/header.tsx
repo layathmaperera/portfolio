@@ -57,7 +57,7 @@ export default function Header() {
 
         <div className="hidden items-center gap-2 md:flex">
           <Button asChild>
-            <Link href="#contact">Hire Me</Link>
+            <Link href="#contact">Contact Me</Link>
           </Button>
         </div>
 
@@ -94,7 +94,7 @@ export default function Header() {
                       href="#contact"
                       className="text-lg font-medium text-muted-foreground transition-colors hover:text-foreground"
                     >
-                      Hire Me
+                      Contact Me
                     </Link>
                   </SheetClose>
                 </nav>
