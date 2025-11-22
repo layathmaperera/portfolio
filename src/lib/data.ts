@@ -4,10 +4,8 @@ import {
   Database,
   Code,
   GitBranch,
-  Tensorflow,
-  PyTorch,
-  Bot,
   Layers3,
+  Bot
 } from 'lucide-react';
 
 // A helper function to easily define a skill
@@ -28,7 +26,7 @@ export type Project = {
   };
 };
 
-export type SkillCategory = 'Languages' | 'Frameworks' | 'ML/AI' | 'Tools';
+export type SkillCategory = 'Languages' | 'Frameworks' | 'Databases' | 'Tools' | 'Libraries';
 
 export type Skill = {
   name: string;
@@ -87,19 +85,23 @@ export const projectsData: Project[] = [
 export const skillsData: Skill[] = [
   createSkill('Python', 'Languages', Code),
   createSkill('JavaScript', 'Languages', Code),
-  createSkill('SQL', 'Languages', Database),
   createSkill('TypeScript', 'Languages', Code),
+  createSkill('Java', 'Languages', Code),
+  createSkill('Kotlin', 'Languages', Code),
+  createSkill('C', 'Languages', Code),
+  createSkill('C++', 'Languages', Code),
+  createSkill('HTML', 'Languages', Code),
+  createSkill('CSS', 'Languages', Code),
+  createSkill('SQL', 'Databases', Database),
+  createSkill('MongoDB', 'Databases', Database),
   createSkill('React', 'Frameworks', Code),
   createSkill('Next.js', 'Frameworks', Code),
   createSkill('Node.js', 'Frameworks', Code),
-  createSkill('FastAPI', 'Frameworks', Code),
-  createSkill('PyTorch', 'ML/AI', BrainCircuit),
-  createSkill('TensorFlow', 'ML/AI', BrainCircuit),
-  createSkill('Scikit-learn', 'ML/AI', BrainCircuit),
-  createSkill('Hugging Face', 'ML/AI', Bot),
-  createSkill('Docker', 'Tools', Layers3),
+  createSkill('Bootstrap', 'Frameworks', Layers3),
   createSkill('Git', 'Tools', GitBranch),
-  createSkill('PostgreSQL', 'Tools', Database),
+  createSkill('Docker', 'Tools', Layers3),
+  createSkill('Scikit-learn', 'Libraries', BrainCircuit),
+  createSkill('Hugging Face', 'Libraries', Bot),
 ];
 
 
