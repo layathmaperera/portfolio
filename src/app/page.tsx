@@ -8,11 +8,11 @@ import { Separator } from '@/components/ui/separator';
 
 export default function Home() {
   return (
-    <div className="grid min-h-screen w-full lg:grid-cols-[280px_1fr]">
+    <div className="flex min-h-screen w-full flex-col">
       <Header />
       <main className="flex flex-col">
         <div className="flex-1">
-          <div className="mx-auto max-w-5xl px-4 md:px-8">
+          <div className="container mx-auto max-w-5xl px-4 md:px-8">
             <About />
             <Separator className="my-16" />
             <Projects />

@@ -2,13 +2,14 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import {
-  Code,
-  Github,
-  Linkedin,
-  Download,
-} from 'lucide-react';
+import { Menu, X, Code, Github, Linkedin, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetClose,
+} from '@/components/ui/sheet';
 
 const navItems = [
   { name: 'About', href: '#about' },
@@ -19,78 +20,91 @@ const navItems = [
 ];
 
 export default function Header() {
-  const [activeSection, setActiveSection] = useState('about');
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = navItems.map((item) =>
-        document.getElementById(item.href.substring(1))
-      );
-      const scrollPosition = window.scrollY + 100;
-
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = sections[i];
-        if (section && section.offsetTop <= scrollPosition) {
-          setActiveSection(section.id);
-          break;
-        }
-      }
+      setIsScrolled(window.scrollY > 10);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
-    <header className="hidden lg:flex lg:flex-col lg:justify-between lg:h-screen lg:py-12 lg:px-8 border-r">
-      <div>
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold">
-            <Link href="/">Alex Doe</Link>
-          </h1>
-          <h2 className="text-xl font-medium text-muted-foreground mt-2">
-            DevOps & Cloud Engineer
-          </h2>
-          <p className="text-muted-foreground mt-4">
-            I build resilient, scalable, and secure cloud infrastructure.
-          </p>
-        </div>
+    <header
+      className={`sticky top-0 z-50 w-full transition-all duration-300 ${
+        isScrolled
+          ? 'bg-background/80 backdrop-blur-sm'
+          : 'bg-transparent'
+      }`}
+    >
+      <div className="container mx-auto flex h-16 max-w-5xl items-center justify-between px-4 md:px-8">
+        <Link href="/" className="flex items-center gap-2">
+          <Code className="h-6 w-6" />
+          <span className="text-lg font-semibold">Alex Doe</span>
+        </Link>
 
-        <nav>
-          <ul className="flex flex-col gap-4">
-            {navItems.map((item) => (
-              <li key={item.name}>
-                <Link
-                  href={item.href}
-                  className={`flex items-center gap-3 text-sm font-medium transition-colors ${
-                    activeSection === item.href.substring(1)
-                      ? 'text-foreground'
-                      : 'text-muted-foreground hover:text-foreground'
-                  }`}
-                >
-                  <span className="h-px w-8 bg-border transition-all" style={{ width: activeSection === item.href.substring(1) ? '2rem' : '1rem', backgroundColor: activeSection === item.href.substring(1) ? 'hsl(var(--foreground))' : 'hsl(var(--border))' }}/>
-                  {item.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
+        {/* Desktop Navigation */}
+        <nav className="hidden items-center gap-6 md:flex">
+          {navItems.map((item) => (
+            <Link
+              key={item.name}
+              href={item.href}
+              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+            >
+              {item.name}
+            </Link>
+          ))}
         </nav>
-      </div>
 
-      <div className="flex flex-col gap-4">
-        <Button size="sm" variant="secondary" asChild>
-          <Link href="#">
-            <Download className="mr-2 h-4 w-4" />
-            Download Resume
-          </Link>
-        </Button>
-        <div className="flex items-center gap-4">
-          <Link href="#" aria-label="GitHub" className="text-muted-foreground hover:text-foreground">
-            <Github className="h-6 w-6" />
-          </Link>
-          <Link href="#" aria-label="LinkedIn" className="text-muted-foreground hover:text-foreground">
-            <Linkedin className="h-6 w-6" />
-          </Link>
+        {/* Mobile Navigation */}
+        <div className="md:hidden">
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon">
+                <Menu className="h-6 w-6" />
+                <span className="sr-only">Open menu</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="left">
+              <div className="flex h-full flex-col p-6">
+                <div className="mb-8">
+                  <Link href="/" className="flex items-center gap-2">
+                    <Code className="h-6 w-6" />
+                    <span className="text-lg font-semibold">Alex Doe</span>
+                  </Link>
+                </div>
+                <nav className="flex flex-col gap-6">
+                  {navItems.map((item) => (
+                    <SheetClose asChild key={item.name}>
+                      <Link
+                        href={item.href}
+                        className="text-lg font-medium text-muted-foreground transition-colors hover:text-foreground"
+                      >
+                        {item.name}
+                      </Link>
+                    </SheetClose>
+                  ))}
+                </nav>
+                <div className="mt-auto flex flex-col gap-4">
+                  <Button size="sm" variant="secondary" asChild>
+                    <Link href="#">
+                      <Download className="mr-2 h-4 w-4" />
+                      Download Resume
+                    </Link>
+                  </Button>
+                  <div className="flex items-center justify-center gap-4">
+                     <Link href="#" aria-label="GitHub" className="text-muted-foreground hover:text-foreground">
+                        <Github className="h-6 w-6" />
+                     </Link>
+                     <Link href="#" aria-label="LinkedIn" className="text-muted-foreground hover:text-foreground">
+                       <Linkedin className="h-6 w-6" />
+                     </Link>
+                  </div>
+                </div>
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
     </header>
