@@ -3,44 +3,44 @@
     {
       "id": "headshot",
       "description": "Professional headshot of a young man.",
-      "imageUrl": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxwcm9mZXNzaW9uYWwlMjBoZWFkc2hvdHxlbnwwfHx8fDE3NjM3ODA1Njd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "professional headshot"
+      "imageUrl": "https://images.unsplash.com/photo-1620216464337-69f08c564cf1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxkZXZlbG9wZXIlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjM4MDM4NDZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "developer portrait"
     },
     {
       "id": "project-k8s",
-      "description": "Abstract image representing Kubernetes.",
-      "imageUrl": "https://images.unsplash.com/photo-1562575214-da9fcf59b907?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8YWJzdHJhY3QlMjB0ZWNofGVufDB8fHx8MTc2MzY5MzUyNXww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "abstract tech"
+      "description": "Abstract image representing a web project.",
+      "imageUrl": "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHx3ZWIlMjBhcHBsaWNhdGlvbnxlbnwwfHx8fDE3NjM3NTU3MzR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "web application"
     },
     {
       "id": "project-monitoring",
-      "description": "Abstract image for a monitoring dashboard.",
-      "imageUrl": "https://images.unsplash.com/photo-1631093441315-a06b9bcbe63f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxkYXNoYm9hcmQlMjB1aXxlbnwwfHx8fDE3NjM3NjYwODZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "dashboard ui"
+      "description": "Abstract image for a chat application.",
+      "imageUrl": "https://images.unsplash.com/photo-1642724978500-c13b821afe04?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxtZXNzYWdpbmclMjBhcHB8ZW58MHx8fHwxNzYzODAzODQ2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "messaging app"
     },
     {
       "id": "project-iac",
-      "description": "Abstract image for infrastructure as code.",
-      "imageUrl": "https://images.unsplash.com/photo-1546980129-6d518dbb51b1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGNvZGV8ZW58MHx8fHwxNzYzNzYxNjAyfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "abstract code"
+      "description": "Abstract image for a portfolio project.",
+      "imageUrl": "https://images.unsplash.com/photo-1743363014543-d61b298cd030?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwb3J0Zm9saW8lMjBkZXNpZ258ZW58MHx8fHwxNzYzNzg3MjU4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "portfolio design"
     },
     {
-      "id": "blog-gitops",
-      "description": "Abstract image representing GitOps.",
-      "imageUrl": "https://images.unsplash.com/photo-1607431067517-fda93b3e0aee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxhYnN0cmFjdCUyMGNvZGV8ZW58MHx8fHwxNzYzNzYxNjAyfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "abstract code"
+      "id": "testimonial-1",
+      "description": "Headshot of a client.",
+      "imageUrl": "https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjM3NjE4ODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "professional portrait"
     },
     {
-      "id": "blog-serverless",
-      "description": "Abstract image representing serverless architecture.",
-      "imageUrl": "https://images.unsplash.com/photo-1674056317188-69664d2677bf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxhYnN0cmFjdCUyMGNsb3VkfGVufDB8fHx8MTc2MzgwMzMxN3ww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "abstract cloud"
+      "id": "testimonial-2",
+      "description": "Headshot of a client.",
+      "imageUrl": "https://images.unsplash.com/photo-1581065178047-8ee15951ede6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjM3NjE4ODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "professional portrait"
     },
     {
-      "id": "blog-finops",
-      "description": "Abstract image representing FinOps and cloud cost management.",
-      "imageUrl": "https://images.unsplash.com/photo-1745509267945-b25cbb4d50ef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjaGFydCUyMGZpbmFuY2V8ZW58MHx8fHwxNzYzNzI3OTAxfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "chart finance"
+      "id": "testimonial-3",
+      "description": "Headshot of a client.",
+      "imageUrl": "https://images.unsplash.com/photo-1595211877493-41a4e5f236b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjM3NjE4ODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "professional portrait"
     }
   ]
 }

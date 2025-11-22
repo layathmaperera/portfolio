@@ -1,13 +1,16 @@
 import type { LucideIcon } from 'lucide-react';
 import {
-  Cloud,
   GitBranch,
-  Terminal,
   Code,
   Database,
   Monitor,
   Cog,
   ShieldCheck,
+  Server,
+  PenTool,
+  Figma,
+  Briefcase,
+  Quote,
 } from 'lucide-react';
 
 export type Project = {
@@ -21,39 +24,38 @@ export type Project = {
   };
 };
 
-export type SkillCategory = 'Cloud' | 'DevOps' | 'Languages' | 'Tools';
+export type SkillCategory = 'Languages' | 'Frontend' | 'Backend' | 'Tools';
 
 export type Skill = {
   name: string;
   category: SkillCategory;
-  proficiency: number;
   Icon: LucideIcon;
 };
 
-export type BlogPost = {
-  title: string;
-  description: string;
+export type Testimonial = {
+  name: string;
+  company: string;
   image: string;
-  date: string;
-  content: string;
+  text: string;
 };
 
 export const projectsData: Project[] = [
   {
-    title: 'Kubernetes Cluster Automation',
+    title: 'E-commerce Platform',
     description:
-      'Automated the deployment and management of a Kubernetes cluster on AWS using Terraform and Ansible. Implemented a CI/CD pipeline with Jenkins to deploy containerized applications.',
-    tags: ['Kubernetes', 'AWS', 'Terraform', 'Ansible', 'Jenkins', 'Docker'],
+      'A full-stack e-commerce solution with a custom CMS, product management, and secure payments via Stripe.',
+    tags: ['Next.js', 'TypeScript', 'Node.js', 'PostgreSQL', 'Stripe'],
     image: 'project-k8s',
     links: {
       github: '#',
+      live: '#',
     },
   },
   {
-    title: 'Serverless Web App',
+    title: 'Real-time Chat App',
     description:
-      'Developed a serverless web application on AWS using Lambda, API Gateway, and DynamoDB. The application provides a RESTful API for a simple note-taking service.',
-    tags: ['AWS Lambda', 'API Gateway', 'DynamoDB', 'Serverless', 'Node.js'],
+      'A responsive, real-time chat application using WebSockets, allowing for instant messaging and user presence.',
+    tags: ['React', 'Node.js', 'Socket.IO', 'MongoDB'],
     image: 'project-monitoring',
     links: {
       github: '#',
@@ -61,10 +63,10 @@ export const projectsData: Project[] = [
     },
   },
   {
-    title: 'Infrastructure as Code for E-commerce',
+    title: 'Portfolio Website V2',
     description:
-      'Designed and implemented scalable and resilient infrastructure for an e-commerce platform on Azure using Terraform. Included VNets, VMs, and database services.',
-    tags: ['Azure', 'Terraform', 'IaC', 'Scalability'],
+      'My personal portfolio (the one you are on right now!) built with Next.js and Tailwind CSS, deployed on Vercel.',
+    tags: ['Next.js', 'Tailwind CSS', 'Framer Motion', 'Vercel'],
     image: 'project-iac',
     links: {
       github: '#',
@@ -73,49 +75,43 @@ export const projectsData: Project[] = [
 ];
 
 export const skillsData: Skill[] = [
-  { name: 'AWS', category: 'Cloud', proficiency: 90, Icon: Cloud },
-  { name: 'Azure', category: 'Cloud', proficiency: 75, Icon: Cloud },
-  { name: 'GCP', category: 'Cloud', proficiency: 60, Icon: Cloud },
-  { name: 'Docker', category: 'DevOps', proficiency: 95, Icon: Cog },
-  { name: 'Kubernetes', category: 'DevOps', proficiency: 85, Icon: Cog },
-  { name: 'Terraform', category: 'DevOps', proficiency: 90, Icon: GitBranch },
-  { name: 'Ansible', category: 'DevOps', proficiency: 80, Icon: GitBranch },
-  { name: 'Jenkins', category: 'DevOps', proficiency: 85, Icon: Terminal },
-  { name: 'Python', category: 'Languages', proficiency: 90, Icon: Code },
-  { name: 'Go', category: 'Languages', proficiency: 70, Icon: Code },
-  { name: 'Bash', category: 'Languages', proficiency: 95, Icon: Terminal },
-  { name: 'Git', category: 'Tools', proficiency: 95, Icon: GitBranch },
-  { name: 'Prometheus', category: 'Tools', proficiency: 80, Icon: Monitor },
-  { name: 'Grafana', category: 'Tools', proficiency: 85, Icon: Monitor },
-  { name: 'PostgreSQL', category: 'Tools', proficiency: 75, Icon: Database },
+  { name: 'TypeScript', category: 'Languages', Icon: Code },
+  { name: 'JavaScript', category: 'Languages', Icon: Code },
+  { name: 'Python', category: 'Languages', Icon: Code },
+  { name: 'React', category: 'Frontend', Icon: Monitor },
+  { name: 'Next.js', category: 'Frontend', Icon: Monitor },
+  { name: 'Tailwind CSS', category: 'Frontend', Icon: PenTool },
+  { name: 'Framer Motion', category: 'Frontend', Icon: PenTool },
+  { name: 'Node.js', category: 'Backend', Icon: Server },
+  { name: 'Express', category: 'Backend', Icon: Server },
+  { name: 'PostgreSQL', category: 'Backend', Icon: Database },
+  { name: 'MongoDB', category: 'Backend', Icon: Database },
+  { name: 'Git', category: 'Tools', Icon: GitBranch },
+  { name: 'Docker', category: 'Tools', Icon: Cog },
+  { name: 'Figma', category: 'Tools', Icon: Figma },
+  { name: 'Vercel', category: 'Tools', Icon: Briefcase },
 ];
 
-export const blogPostsData: BlogPost[] = [
+export const testimonialsData: Testimonial[] = [
   {
-    title: 'The Rise of GitOps',
-    description:
-      'An in-depth look at how GitOps is revolutionizing infrastructure management and application deployment. What are the benefits and how to get started.',
-    image: 'blog-gitops',
-    date: 'October 26, 2023',
-    content:
-      "GitOps is a modern paradigm for continuous deployment that leverages Git as a single source of truth for declarative infrastructure and applications. By using Git as the control plane, developers can manage infrastructure and application deployments through familiar pull requests. This approach brings several benefits, including improved developer experience, enhanced security, and greater reliability. The core idea is to have a Git repository that contains declarative descriptions of the infrastructure currently desired in the production environment and an automated process to make the production environment match the described state in the repository. When you want to deploy a new version of an application or change the infrastructure, you simply update the repository – the automated process handles everything else. This workflow is not only transparent but also provides a full audit trail of all changes.",
+    name: 'Jane Smith',
+    company: 'Tech Solutions Inc.',
+    image: 'testimonial-1',
+    text: "Alex is a phenomenal developer. Their attention to detail and ability to tackle complex problems is unmatched. They delivered a high-quality product on time and was a pleasure to work with."
   },
   {
-    title: 'Serverless vs. Containers',
-    description:
-      'A comprehensive comparison between serverless computing and containerization technologies like Docker and Kubernetes. Which one is right for your next project?',
-    image: 'blog-serverless',
-    date: 'September 15, 2023',
-    content:
-      "The debate between serverless and containers is one of the hottest topics in cloud-native development. Both offer powerful ways to build and deploy applications, but they cater to different needs and use cases. Containers, popularized by Docker and orchestrated by platforms like Kubernetes, provide a consistent and portable environment for applications. They give you fine-grained control over the runtime, dependencies, and underlying infrastructure. This makes them ideal for complex, stateful applications, or for migrating legacy systems to the cloud. On the other hand, serverless computing, with services like AWS Lambda, abstracts away the infrastructure entirely. You only write your function code and the cloud provider handles provisioning, scaling, and management. This is perfect for event-driven architectures, microservices, and applications with unpredictable traffic patterns, as you only pay for what you use. The choice isn't always one or the other; many modern applications use a hybrid approach, leveraging the strengths of both.",
+    name: 'John Miller',
+    company: 'Creative Agency LLC',
+    image: 'testimonial-2',
+    text: "Working with Alex was a game-changer for our project. Their expertise in UI/UX and frontend development transformed our vision into a beautiful, intuitive, and highly performant web application."
   },
   {
-    title: 'Getting Started with FinOps',
-    description:
-      'A practical guide to implementing FinOps principles in your organization to gain financial control and predictability over your cloud spending.',
-    image: 'blog-finops',
-    date: 'August 02, 2023',
-    content:
-      "As cloud adoption grows, so does the complexity of managing costs. FinOps, or Cloud Financial Operations, is a cultural practice and an operating model that brings financial accountability to the variable spend model of cloud. It’s a collaboration between finance, engineering, and business teams to manage cloud costs. The goal is to make informed, data-driven decisions on cloud spending. The FinOps lifecycle has three phases: Inform, Optimize, and Operate. In the 'Inform' phase, you gain visibility into your cloud spending through tagging, cost allocation, and reporting. The 'Optimize' phase focuses on identifying and implementing cost-saving opportunities, like rightsizing instances, using reserved instances, or shutting down unused resources. Finally, the 'Operate' phase is about continuous improvement and embedding cost-awareness into the development lifecycle. By adopting FinOps, organizations can maximize the business value of the cloud while staying within budget.",
-  },
+    name: 'Sarah Chen',
+    company: 'Innovate Startups',
+    image: 'testimonial-3',
+    text: "I was impressed by Alex's professionalism and technical skills. They are not only a talented developer but also an excellent communicator, making the entire process smooth and transparent."
+  }
 ];
+
+// Blog data is no longer used
+export const blogPostsData: any[] = [];

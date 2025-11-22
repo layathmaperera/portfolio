@@ -56,40 +56,38 @@ export default function Contact() {
   }, [state, toast]);
 
   return (
-    <section id="contact" className="py-20 sm:py-32">
+    <section id="contact" className="border-t bg-muted/30 py-20 sm:py-32">
       <div className="container mx-auto max-w-2xl px-4">
         <div className="mb-12 text-center">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
             Get In Touch
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Have a question or want to work together? Leave a message.
+            Have a project in mind, or just want to say hi? I'd love to hear from you.
           </p>
         </div>
-        <Card>
-          <CardHeader>
-            <CardTitle>Contact Form</CardTitle>
-            <CardDescription>I&apos;ll get back to you as soon as possible.</CardDescription>
-          </CardHeader>
-          <CardContent>
+        <Card className="border-0 bg-transparent shadow-none sm:border sm:bg-card sm:shadow-sm">
+          <CardContent className="p-0 sm:p-6">
             <form ref={formRef} action={formAction} className="space-y-4">
-              <div className="space-y-2">
-                <Label htmlFor="name">Name</Label>
-                <Input id="name" name="name" placeholder="Your Name" />
-                {state.errors?.name && (
-                  <p className="text-sm text-destructive">{state.errors.name[0]}</p>
-                )}
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
-                <Input id="email" name="email" type="email" placeholder="your@email.com" />
-                {state.errors?.email && (
-                  <p className="text-sm text-destructive">{state.errors.email[0]}</p>
-                )}
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                <div className="space-y-2">
+                  <Label htmlFor="name">Name</Label>
+                  <Input id="name" name="name" placeholder="Your Name" required />
+                  {state.errors?.name && (
+                    <p className="text-sm text-destructive">{state.errors.name[0]}</p>
+                  )}
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="email">Email</Label>
+                  <Input id="email" name="email" type="email" placeholder="your@email.com" required />
+                  {state.errors?.email && (
+                    <p className="text-sm text-destructive">{state.errors.email[0]}</p>
+                  )}
+                </div>
               </div>
               <div className="space-y-2">
                 <Label htmlFor="message">Message</Label>
-                <Textarea id="message" name="message" placeholder="Your message..." rows={5} />
+                <Textarea id="message" name="message" placeholder="Your message..." rows={5} required/>
                 {state.errors?.message && (
                   <p className="text-sm text-destructive">{state.errors.message[0]}</p>
                 )}

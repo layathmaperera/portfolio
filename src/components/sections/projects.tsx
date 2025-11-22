@@ -16,15 +16,14 @@ import { ExternalLink, Github } from 'lucide-react';
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-20 sm:py-32">
-      <div className="container mx-auto max-w-7xl px-4">
-        <div className="mb-12 text-center">
+    <section id="projects" className="border-t bg-muted/30 py-20 sm:py-32">
+      <div className="container mx-auto max-w-screen-2xl px-4">
+        <div className="mb-12 max-w-xl">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
             Featured Projects
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Here are some of the projects I&apos;ve worked on to apply my
-            skills.
+            A selection of my work. I'm always learning and building.
           </p>
         </div>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -35,7 +34,7 @@ export default function Projects() {
             return (
               <Card
                 key={project.title}
-                className="flex flex-col overflow-hidden transition-shadow duration-300 hover:shadow-xl hover:shadow-accent/10"
+                className="flex flex-col overflow-hidden transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl"
               >
                 {image && (
                   <div className="relative aspect-video w-full">
@@ -50,12 +49,12 @@ export default function Projects() {
                 )}
                 <CardHeader>
                   <CardTitle>{project.title}</CardTitle>
-                  <CardDescription className="pt-2">
-                    {project.description}
-                  </CardDescription>
                 </CardHeader>
                 <CardContent className="flex-grow">
-                  <div className="flex flex-wrap gap-2">
+                  <CardDescription>
+                    {project.description}
+                  </CardDescription>
+                  <div className="mt-4 flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
                       <Badge key={tag} variant="secondary">
                         {tag}
@@ -63,7 +62,7 @@ export default function Projects() {
                     ))}
                   </div>
                 </CardContent>
-                <CardFooter className="flex justify-end gap-2">
+                <CardFooter className="flex justify-end gap-2 bg-muted/30 p-4">
                   <Button variant="outline" asChild>
                     <Link href={project.links.github} target="_blank">
                       <Github className="mr-2 h-4 w-4" />
