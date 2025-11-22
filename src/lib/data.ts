@@ -1,16 +1,15 @@
 import type { LucideIcon } from 'lucide-react';
 import {
   GitBranch,
-  Code,
-  Database,
-  Monitor,
-  Cog,
+  Cloud,
+  Layers,
+  Container,
+  Terminal,
+  Workflow,
   ShieldCheck,
   Server,
-  PenTool,
-  Figma,
-  Briefcase,
-  Quote,
+  Gauge,
+  Code,
 } from 'lucide-react';
 
 export type Project = {
@@ -24,7 +23,7 @@ export type Project = {
   };
 };
 
-export type SkillCategory = 'Languages' | 'Frontend' | 'Backend' | 'Tools';
+export type SkillCategory = 'Cloud' | 'Containers' | 'IaC' | 'CI/CD' | 'Tools';
 
 export type Skill = {
   name: string;
@@ -41,32 +40,30 @@ export type Testimonial = {
 
 export const projectsData: Project[] = [
   {
-    title: 'E-commerce Platform',
+    title: 'Kubernetes Infrastructure',
     description:
-      'A full-stack e-commerce solution with a custom CMS, product management, and secure payments via Stripe.',
-    tags: ['Next.js', 'TypeScript', 'Node.js', 'PostgreSQL', 'Stripe'],
+      'Designed and deployed a highly available Kubernetes cluster on AWS using EKS, managing it with Terraform and Helm charts.',
+    tags: ['AWS', 'Kubernetes', 'Terraform', 'Helm', 'EKS'],
     image: 'project-k8s',
     links: {
       github: '#',
-      live: '#',
     },
   },
   {
-    title: 'Real-time Chat App',
+    title: 'CI/CD Pipeline Automation',
     description:
-      'A responsive, real-time chat application using WebSockets, allowing for instant messaging and user presence.',
-    tags: ['React', 'Node.js', 'Socket.IO', 'MongoDB'],
+      'Built a full CI/CD pipeline for a microservices application using GitHub Actions, Docker, and Canary deployments to production.',
+    tags: ['GitHub Actions', 'Docker', 'CI/CD', 'Canary'],
     image: 'project-monitoring',
     links: {
       github: '#',
-      live: '#',
     },
   },
   {
-    title: 'Portfolio Website V2',
+    title: 'Infrastructure as Code',
     description:
-      'My personal portfolio (the one you are on right now!) built with Next.js and Tailwind CSS, deployed on Vercel.',
-    tags: ['Next.js', 'Tailwind CSS', 'Framer Motion', 'Vercel'],
+      'Managed all cloud resources for a SaaS platform using Terraform, enabling rapid environment provisioning and consistent deployments.',
+    tags: ['Terraform', 'GCP', 'Infrastructure as Code', 'SaaS'],
     image: 'project-iac',
     links: {
       github: '#',
@@ -75,21 +72,21 @@ export const projectsData: Project[] = [
 ];
 
 export const skillsData: Skill[] = [
-  { name: 'TypeScript', category: 'Languages', Icon: Code },
-  { name: 'JavaScript', category: 'Languages', Icon: Code },
-  { name: 'Python', category: 'Languages', Icon: Code },
-  { name: 'React', category: 'Frontend', Icon: Monitor },
-  { name: 'Next.js', category: 'Frontend', Icon: Monitor },
-  { name: 'Tailwind CSS', category: 'Frontend', Icon: PenTool },
-  { name: 'Framer Motion', category: 'Frontend', Icon: PenTool },
-  { name: 'Node.js', category: 'Backend', Icon: Server },
-  { name: 'Express', category: 'Backend', Icon: Server },
-  { name: 'PostgreSQL', category: 'Backend', Icon: Database },
-  { name: 'MongoDB', category: 'Backend', Icon: Database },
+  { name: 'AWS', category: 'Cloud', Icon: Cloud },
+  { name: 'GCP', category: 'Cloud', Icon: Cloud },
+  { name: 'Azure', category: 'Cloud', Icon: Cloud },
+  { name: 'Docker', category: 'Containers', Icon: Container },
+  { name: 'Kubernetes', category: 'Containers', Icon: Container },
+  { name: 'Terraform', category: 'IaC', Icon: Layers },
+  { name: 'Ansible', category: 'IaC', Icon: Layers },
+  { name: 'GitHub Actions', category: 'CI/CD', Icon: Workflow },
+  { name: 'Jenkins', category: 'CI/CD', Icon: Workflow },
   { name: 'Git', category: 'Tools', Icon: GitBranch },
-  { name: 'Docker', category: 'Tools', Icon: Cog },
-  { name: 'Figma', category: 'Tools', Icon: Figma },
-  { name: 'Vercel', category: 'Tools', Icon: Briefcase },
+  { name: 'Prometheus', category: 'Tools', Icon: Gauge },
+  { name: 'Grafana', category: 'Tools', Icon: Gauge },
+  { name: 'Bash', category: 'Tools', Icon: Terminal },
+  { name: 'Python', category: 'Tools', Icon: Code },
+  { name: 'Go', category: 'Tools', Icon: Code },
 ];
 
 export const testimonialsData: Testimonial[] = [
@@ -97,20 +94,20 @@ export const testimonialsData: Testimonial[] = [
     name: 'Jane Smith',
     company: 'Tech Solutions Inc.',
     image: 'testimonial-1',
-    text: "Alex is a phenomenal developer. Their attention to detail and ability to tackle complex problems is unmatched. They delivered a high-quality product on time and was a pleasure to work with."
+    text: 'Alex revolutionized our deployment process. The automated CI/CD pipeline they built saved us countless hours and dramatically reduced our deployment errors. A true professional.',
   },
   {
     name: 'John Miller',
     company: 'Creative Agency LLC',
     image: 'testimonial-2',
-    text: "Working with Alex was a game-changer for our project. Their expertise in UI/UX and frontend development transformed our vision into a beautiful, intuitive, and highly performant web application."
+    text: 'The cloud infrastructure Alex designed for us is rock-solid. Scalable, secure, and cost-effective. Their expertise in AWS and Terraform is top-notch.',
   },
   {
     name: 'Sarah Chen',
     company: 'Innovate Startups',
     image: 'testimonial-3',
-    text: "I was impressed by Alex's professionalism and technical skills. They are not only a talented developer but also an excellent communicator, making the entire process smooth and transparent."
-  }
+    text: "Alex's ability to diagnose and solve complex infrastructure issues is incredible. They are a fantastic team player and a huge asset to any engineering organization.",
+  },
 ];
 
 // Blog data is no longer used

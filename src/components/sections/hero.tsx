@@ -20,10 +20,10 @@ export default function Hero() {
             Hi, I'm Alex Doe
           </h1>
           <p className="mt-4 text-lg text-muted-foreground">
-            Full-Stack Developer & UI/UX Enthusiast
+            DevOps & Cloud Engineer
           </p>
           <p className="mt-6 max-w-xl text-lg text-muted-foreground">
-            I build beautiful, functional, and accessible web experiences with a focus on modern technologies and user-centric design.
+            I build and maintain scalable, reliable, and efficient infrastructure to empower development teams and deliver robust applications.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4 lg:justify-start">
             <Button size="lg" asChild>

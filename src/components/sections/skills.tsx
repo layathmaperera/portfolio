@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Search } from 'lucide-react';
 import { Badge } from '../ui/badge';
 
-const categories: SkillCategory[] = ['Languages', 'Frontend', 'Backend', 'Tools'];
+const categories: SkillCategory[] = ['Cloud', 'Containers', 'IaC', 'CI/CD', 'Tools'];
 
 export default function Skills() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -31,7 +31,7 @@ export default function Skills() {
             My Technical Skillset
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Constantly learning and adapting to new technologies. Here's what I'm proficient in.
+            I specialize in building and managing modern cloud infrastructure and CI/CD pipelines.
           </p>
         </div>
 
