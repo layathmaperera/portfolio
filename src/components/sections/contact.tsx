@@ -57,18 +57,14 @@ export default function Contact() {
   }, [state, toast]);
 
   return (
-    <section id="contact" className="border-t bg-muted/30 py-20 sm:py-32">
-      <div className="container mx-auto max-w-2xl px-4">
-        <div className="mb-12 text-center">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-            Get In Touch
-          </h2>
-          <p className="mt-4 text-lg text-muted-foreground">
-            Have a project in mind, or just want to say hi? I'd love to hear from you.
-          </p>
-        </div>
-        <Card className="border-0 bg-transparent shadow-none sm:border sm:bg-card sm:shadow-sm">
-          <CardContent className="p-0 sm:p-6">
+    <section id="contact" className="py-24 lg:py-32">
+       <div className="mb-12">
+        <h2 className="text-xl font-bold uppercase tracking-widest text-muted-foreground">
+          Contact
+        </h2>
+      </div>
+        <Card className="border bg-card">
+          <CardContent className="p-6">
             <form ref={formRef} action={formAction} className="space-y-4">
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <div className="space-y-2">
@@ -97,7 +93,6 @@ export default function Contact() {
             </form>
           </CardContent>
         </Card>
-      </div>
     </section>
   );
 }

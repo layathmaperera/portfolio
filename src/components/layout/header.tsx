@@ -1,15 +1,14 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Code, Menu } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTrigger,
-} from '@/components/ui/sheet';
+  Code,
+  Github,
+  Linkedin,
+  Download,
+} from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 const navItems = [
   { name: 'About', href: '#about' },
@@ -21,59 +20,78 @@ const navItems = [
 ];
 
 export default function Header() {
-  const [isMenuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('about');
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = navItems.map((item) =>
+        document.getElementById(item.href.substring(1))
+      );
+      const scrollPosition = window.scrollY + 100;
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = sections[i];
+        if (section && section.offsetTop <= scrollPosition) {
+          setActiveSection(section.id);
+          break;
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-14 max-w-screen-2xl items-center">
-        <Link href="/" className="mr-6 flex items-center space-x-2">
-          <Code className="h-6 w-6" />
-          <span className="font-bold sm:inline-block">Alex Doe</span>
-        </Link>
-        <nav className="hidden flex-1 gap-6 md:flex">
-          {navItems.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-            >
-              {item.name}
-            </Link>
-          ))}
-        </nav>
-        <div className="flex flex-1 items-center justify-end md:hidden">
-          <Sheet open={isMenuOpen} onOpenChange={setMenuOpen}>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon">
-                <Menu />
-                <span className="sr-only">Open Menu</span>
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="left">
-              <SheetHeader>
+    <header className="hidden lg:flex lg:flex-col lg:justify-between lg:h-screen lg:py-12 lg:px-8 border-r">
+      <div>
+        <div className="mb-8">
+          <h1 className="text-4xl font-bold">
+            <Link href="/">Alex Doe</Link>
+          </h1>
+          <h2 className="text-xl font-medium text-muted-foreground mt-2">
+            DevOps & Cloud Engineer
+          </h2>
+          <p className="text-muted-foreground mt-4">
+            I build resilient, scalable, and secure cloud infrastructure.
+          </p>
+        </div>
+
+        <nav>
+          <ul className="flex flex-col gap-4">
+            {navItems.map((item) => (
+              <li key={item.name}>
                 <Link
-                  href="/"
-                  className="flex items-center space-x-2"
-                  onClick={() => setMenuOpen(false)}
+                  href={item.href}
+                  className={`flex items-center gap-3 text-sm font-medium transition-colors ${
+                    activeSection === item.href.substring(1)
+                      ? 'text-foreground'
+                      : 'text-muted-foreground hover:text-foreground'
+                  }`}
                 >
-                  <Code className="h-6 w-6" />
-                  <span className="font-bold">Alex Doe</span>
+                  <span className="h-px w-8 bg-border transition-all" style={{ width: activeSection === item.href.substring(1) ? '2rem' : '1rem', backgroundColor: activeSection === item.href.substring(1) ? 'hsl(var(--foreground))' : 'hsl(var(--border))' }}/>
+                  {item.name}
                 </Link>
-              </SheetHeader>
-              <div className="mt-6 flex flex-col gap-4">
-                {navItems.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    onClick={() => setMenuOpen(false)}
-                    className="text-lg font-medium"
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-              </div>
-            </SheetContent>
-          </Sheet>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+
+      <div className="flex flex-col gap-4">
+        <Button size="sm" variant="secondary" asChild>
+          <Link href="#">
+            <Download className="mr-2 h-4 w-4" />
+            Download Resume
+          </Link>
+        </Button>
+        <div className="flex items-center gap-4">
+          <Link href="#" aria-label="GitHub" className="text-muted-foreground hover:text-foreground">
+            <Github className="h-6 w-6" />
+          </Link>
+          <Link href="#" aria-label="LinkedIn" className="text-muted-foreground hover:text-foreground">
+            <Linkedin className="h-6 w-6" />
+          </Link>
         </div>
       </div>
     </header>

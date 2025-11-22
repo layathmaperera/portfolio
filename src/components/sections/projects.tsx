@@ -12,46 +12,43 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { projectsData } from '@/lib/data';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { Library, Github } from 'lucide-react';
+import { Library, Github, ExternalLink } from 'lucide-react';
 
 export default function Projects() {
   return (
-    <section id="projects" className="border-t bg-muted/30 py-20 sm:py-32">
-      <div className="container mx-auto max-w-screen-2xl px-4">
-        <div className="mb-12 max-w-xl">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-            Infrastructure Showcases
-          </h2>
-          <p className="mt-4 text-lg text-muted-foreground">
-            A selection of my work, highlighting architecture and automation.
-          </p>
-        </div>
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {projectsData.map((project) => {
-            const image = PlaceHolderImages.find(
-              (img) => img.id === project.image
-            );
-            return (
-              <Card
-                key={project.title}
-                className="flex flex-col overflow-hidden transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl"
-              >
+    <section id="projects" className="pt-24 lg:pt-32">
+       <div className="mb-12">
+        <h2 className="text-xl font-bold uppercase tracking-widest text-muted-foreground">
+          Projects
+        </h2>
+      </div>
+      <div className="grid grid-cols-1 gap-8">
+        {projectsData.map((project) => {
+          const image = PlaceHolderImages.find(
+            (img) => img.id === project.image
+          );
+          return (
+            <Card
+              key={project.title}
+              className="group flex flex-col overflow-hidden transition-shadow hover:shadow-lg sm:flex-row"
+            >
+              <div className="relative w-full sm:w-1/3 aspect-video sm:aspect-auto">
                 {image && (
-                  <div className="relative aspect-video w-full">
-                    <Image
-                      src={image.imageUrl}
-                      alt={image.description}
-                      data-ai-hint={image.imageHint}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
+                  <Image
+                    src={image.imageUrl}
+                    alt={image.description}
+                    data-ai-hint={image.imageHint}
+                    fill
+                    className="object-cover"
+                  />
                 )}
-                <CardHeader>
-                  <CardTitle>{project.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="flex-grow">
-                  <CardDescription>
+              </div>
+              <div className="flex flex-1 flex-col justify-between p-6">
+                <div>
+                  <CardTitle className="text-lg font-bold">
+                    {project.title}
+                  </CardTitle>
+                  <CardDescription className="mt-2">
                     {project.description}
                   </CardDescription>
                   <div className="mt-4 flex flex-wrap gap-2">
@@ -61,27 +58,27 @@ export default function Projects() {
                       </Badge>
                     ))}
                   </div>
-                </CardContent>
-                <CardFooter className="flex justify-end gap-2 bg-muted/30 p-4">
-                  <Button variant="outline" asChild>
+                </div>
+                <div className="mt-6 flex items-center justify-end gap-2">
+                   <Button variant="outline" size="sm" asChild>
                     <Link href={project.links.github} target="_blank">
                       <Github className="mr-2 h-4 w-4" />
                       GitHub
                     </Link>
                   </Button>
                   {project.links.diagram && (
-                    <Button asChild>
+                     <Button size="sm" asChild>
                       <Link href={project.links.diagram} target="_blank">
                         <Library className="mr-2 h-4 w-4" />
                         Architecture
                       </Link>
                     </Button>
                   )}
-                </CardFooter>
-              </Card>
-            );
-          })}
-        </div>
+                </div>
+              </div>
+            </Card>
+          );
+        })}
       </div>
     </section>
   );
