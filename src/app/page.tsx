@@ -13,7 +13,6 @@ export default function Home() {
       <main className="flex flex-col">
         <Hero />
         <div id="content" className="relative flex-1 overflow-hidden">
-          <div className="absolute inset-0 z-0 h-full w-full bg-transparent bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"></div>
           <div className="absolute inset-0 z-0 h-full w-full bg-[radial-gradient(circle_1000px_at_50%_0,#3e3e3e,transparent)]"></div>
           <div className="relative z-10 container mx-auto max-w-5xl px-4 md:px-8">
             <About />

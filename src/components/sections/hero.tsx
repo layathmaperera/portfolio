@@ -14,7 +14,6 @@ export default function Hero() {
     
   return (
     <section className="relative flex h-screen items-center justify-center bg-background text-center overflow-hidden">
-        <div className="absolute inset-0 z-0 h-full w-full bg-transparent bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"></div>
         <div className="absolute inset-0 z-0 h-full w-full bg-[radial-gradient(circle_500px_at_50%_200px,#3e3e3e,transparent)]"></div>
        <div className={`relative z-10 mx-auto max-w-3xl px-4 transition-all duration-1000 ease-out ${isMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
         <p className={`mb-4 text-sm font-semibold uppercase tracking-widest text-primary transition-opacity duration-1000 delay-300 ${isMounted ? 'opacity-100' : 'opacity-0'}`}>
