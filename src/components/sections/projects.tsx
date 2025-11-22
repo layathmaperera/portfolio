@@ -30,7 +30,7 @@ export default function Projects() {
           return (
             <Card
               key={project.title}
-              className="group flex flex-col overflow-hidden transition-shadow hover:shadow-lg"
+              className="group flex flex-col overflow-hidden transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-2xl"
             >
                <div className="relative w-full aspect-video">
                 {image && (

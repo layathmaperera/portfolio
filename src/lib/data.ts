@@ -99,9 +99,6 @@ export const skillsData: Skill[] = [
   createSkill('Node.js', 'Frameworks', Code),
   createSkill('Bootstrap', 'Frameworks', Layers3),
   createSkill('Git', 'Tools', GitBranch),
-  createSkill('Docker', 'Tools', Layers3),
-  createSkill('Scikit-learn', 'Libraries', BrainCircuit),
-  createSkill('Hugging Face', 'Libraries', Bot),
 ];
 
 
