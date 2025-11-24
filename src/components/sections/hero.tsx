@@ -11,6 +11,15 @@ export default function Hero() {
     useEffect(() => {
         setIsMounted(true);
     }, []);
+
+    const handleDownloadCV = () => {
+        const link = document.createElement('a');
+        link.href = '/cv.pdf';
+        link.download = 'Layathma_Perera_CV.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    };
     
   return (
     <section className="relative flex h-screen items-center justify-center bg-background text-center overflow-hidden">
@@ -29,13 +38,11 @@ export default function Hero() {
         </p>
         <div className={`mt-8 flex flex-wrap justify-center gap-4 transition-opacity duration-1000 delay-900 ${isMounted ? 'opacity-100' : 'opacity-0'}`}>
           <Button size="lg" asChild>
-            <Link href="#about">Meet Layathma</Link>
+            <Link href="#contact">Meet Layathma</Link>
           </Button>
-          <Button size="lg" variant="outline" asChild>
-            <Link href="#">
-              <Download className="mr-2 h-4 w-4" />
-              Resume
-            </Link>
+          <Button size="lg" variant="outline" onClick={handleDownloadCV}>
+            <Download className="mr-2 h-4 w-4" />
+            Resume
           </Button>
         </div>
       </div>

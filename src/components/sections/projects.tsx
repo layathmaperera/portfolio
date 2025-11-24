@@ -1,3 +1,6 @@
+'use client';
+
+import React, { useState, useMemo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import {
@@ -10,11 +13,28 @@ import {
 } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { projectsData } from '@/lib/data';
+import { projectsData, type ProjectCategory } from '@/lib/data';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Play, Github, ArrowRight } from 'lucide-react';
 
+const projectCategories: ['All', ...ProjectCategory[]] = [
+  'All',
+  'Frontend',
+  'Backend',
+  'Fullstack',
+  'Mobile',
+];
+
 export default function Projects() {
+  const [selectedCategory, setSelectedCategory] = useState<
+    'All' | ProjectCategory
+  >('All');
+
+  const filteredProjects = useMemo(() => {
+    return projectsData.filter((project) =>
+      selectedCategory === 'All' ? true : project.category === selectedCategory
+    );
+  }, [selectedCategory]);
   return (
     <section id="projects" className="pt-24 lg:pt-32">
        <div className="mb-12">
@@ -22,22 +42,39 @@ export default function Projects() {
           Projects
         </h2>
       </div>
+      
+      <div className="mb-8 flex flex-wrap items-center justify-center gap-2">
+        {projectCategories.map((category) => (
+          <Button
+            key={category}
+            variant={selectedCategory === category ? 'default' : 'outline'}
+            size="sm"
+            onClick={() => setSelectedCategory(category)}
+          >
+            {category}
+          </Button>
+        ))}
+      </div>
+
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-        {projectsData.map((project) => {
-          const image = PlaceHolderImages.find(
+        {filteredProjects.map((project) => {
+          const placeholderImage = PlaceHolderImages.find(
             (img) => img.id === project.image
           );
+          const isDirectPath = project.image.startsWith('/');
+          const imageSrc = isDirectPath ? project.image : placeholderImage?.imageUrl;
+          const imageAlt = isDirectPath ? `${project.title} screenshot` : placeholderImage?.description;
+          
           return (
             <Card
               key={project.title}
               className="group flex flex-col overflow-hidden transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-2xl"
             >
                <div className="relative w-full aspect-video">
-                {image && (
+                {imageSrc && (
                   <Image
-                    src={image.imageUrl}
-                    alt={image.description}
-                    data-ai-hint={image.imageHint}
+                    src={imageSrc}
+                    alt={imageAlt || 'Project image'}
                     fill
                     className="object-cover"
                   />

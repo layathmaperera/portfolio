@@ -1,6 +1,9 @@
 'use server';
 
 import { z } from 'zod';
+import { Resend } from 'resend';
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 const contactSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
@@ -39,10 +42,28 @@ export async function submitContactForm(
   }
 
   try {
-    // In a real application, you would send an email here.
-    // For example, using a service like Resend, SendGrid, or Nodemailer.
-    console.log('Contact form submitted:');
-    console.log(validatedFields.data);
+    const { name, email, message } = validatedFields.data;
+
+    // Send email using Resend
+    await resend.emails.send({
+      from: 'Portfolio Contact <onboarding@resend.dev>',
+      to: ['layathmaperera@gmail.com'], 
+      subject: `New Portfolio Contact from ${name}`,
+      html: `
+        <h2>New Contact Form Submission</h2>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Message:</strong></p>
+        <p>${message.replace(/\n/g, '<br>')}</p>
+      `,
+      text: `
+        New Contact Form Submission
+        
+        Name: ${name}
+        Email: ${email}
+        Message: ${message}
+      `,
+    });
 
     return {
       message: 'Thank you for your message! I will get back to you soon.',

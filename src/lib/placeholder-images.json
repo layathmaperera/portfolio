@@ -2,8 +2,8 @@
   "placeholderImages": [
     {
       "id": "headshot",
-      "description": "Professional headshot of a young man.",
-      "imageUrl": "https://images.unsplash.com/photo-1752859951149-7d3fc700a7ec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZGV2ZWxvcGVyJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzYzODAzODQ2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Image of Layathma Perera.",
+      "imageUrl": "/images/headshot.jpg",
       "imageHint": "developer portrait"
     },
     {
@@ -23,6 +23,12 @@
       "description": "Abstract image for a portfolio project.",
       "imageUrl": "https://images.unsplash.com/photo-1763568258533-d0597f86ce62?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhdXRvbWF0aW9uJTIwY29kZXxlbnwwfHx8fDE3NjM4MDQzMzV8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "automation code"
+    },
+    {
+      "id": "meet-ai",
+      "description": "MeetMind AI project image.",
+      "imageUrl": "/images/projects/meet-ai.jpeg",
+      "imageHint": "AI SaaS platform"
     }
   ]
 }
