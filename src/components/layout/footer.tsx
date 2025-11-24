@@ -19,20 +19,21 @@ export default function Footer() {
           <div className="flex flex-col gap-4">
             <h3 className="text-2xl font-bold text-primary">Layathma Perera</h3>
             <p className="text-sm text-muted-foreground">
-              Software Engineer passionate about crafting smart, efficient
-              solutions and exploring how AI and ML shape the future of
-              technology.
+              Software Engineer<br />
+              Passionate about Cloud and DevOps.
             </p>
             <div className="flex items-center gap-4">
               <Link
-                href="#"
+                href="https://github.com/layathmaperera"
+                target="_blank"
                 aria-label="GitHub"
                 className="text-muted-foreground transition-colors hover:text-foreground"
               >
                 <Github className="h-5 w-5" />
               </Link>
               <Link
-                href="#"
+                href="https://www.linkedin.com/in/layathma-perera"
+                target="_blank"
                 aria-label="LinkedIn"
                 className="text-muted-foreground transition-colors hover:text-foreground"
               >
@@ -67,11 +68,11 @@ export default function Footer() {
               </a>
               <div className="flex items-center gap-2">
                 <MapPin className="h-4 w-4" />
-                <span>Colombo, Sri Lanka</span>
+                <span>Gampaha, Sri Lanka</span>
               </div>
-              <Link href="#contact" className="flex items-center gap-2 transition-colors hover:text-foreground">
+              {/* <Link href="#contact" className="flex items-center gap-2 transition-colors hover:text-foreground">
                  <span>Get in touch</span>
-              </Link>
+              </Link> */}
             </div>
           </div>
 

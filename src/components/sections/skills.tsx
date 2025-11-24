@@ -1,8 +1,11 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
 import {
   Tabs,
   TabsContent,
@@ -16,8 +19,7 @@ import {
   type Skill,
   type SkillCategory,
 } from '@/lib/data';
-import { Search } from 'lucide-react';
-import { Button } from '../ui/button';
+import { Search, ExternalLink } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const skillCategories: ['All', ...SkillCategory[]] = [
@@ -120,16 +122,41 @@ export default function Skills() {
           </div>
         </TabsContent>
         <TabsContent value="certifications">
-          <div className="mt-8 grid gap-8">
+          <div className="mt-8 grid gap-6 md:grid-cols-2">
             {certificationsData.map((cert) => (
               <Card key={cert.name} className="p-6">
-                <CardHeader className="p-0">
-                  <CardTitle className="text-base">{cert.name}</CardTitle>
-                </CardHeader>
-                <CardContent className="p-0 mt-2">
-                  <p className="font-medium">{cert.issuer}</p>
-                  <p className="text-sm text-muted-foreground">{cert.year}</p>
-                </CardContent>
+                <div className="flex items-start gap-4">
+                  {cert.image && (
+                    <div className="flex-shrink-0">
+                      <Image
+                        src={cert.image}
+                        alt={`${cert.name} badge`}
+                        width={96}
+                        height={96}
+                        className="rounded-lg"
+                      />
+                    </div>
+                  )}
+                  <div className="flex-1">
+                    <CardHeader className="p-0">
+                      <CardTitle className="text-base">{cert.name}</CardTitle>
+                    </CardHeader>
+                    <CardContent className="p-0 mt-2">
+                      <p className="font-medium">{cert.issuer}</p>
+                      <p className="text-sm text-muted-foreground">{cert.year}</p>
+                    </CardContent>
+                  </div>
+                </div>
+                {cert.verificationUrl && (
+                  <div className="mt-4">
+                    <Button variant="outline" size="sm" asChild>
+                      <Link href={cert.verificationUrl} target="_blank">
+                        <ExternalLink className="mr-2 h-4 w-4" />
+                        Verify Certificate
+                      </Link>
+                    </Button>
+                  </div>
+                )}
               </Card>
             ))}
           </div>

@@ -12,15 +12,16 @@ export default function About() {
             About Me
           </h2>
           <p className="mt-6 text-lg text-foreground">
-            Hi, I'm Layathma Perera. I'm a Software Engineer passionate about
-            crafting smart, efficient solutions and learning how AI and ML shape
-            the future of technology.
+            I’m Layathma Perera, a Software Engineer passionate about cloud-native development
+             and DevOps practises.
+              I enjoy designing scalable architectures, 
+            optimizing performance, and improving software reliability through automation.
           </p>
           <p className="mt-4 text-lg text-muted-foreground">
-            I have a strong foundation in building scalable and performant web
-            applications, with a keen interest in applying machine learning
-            models to solve real-world problems. I enjoy working on all aspects
-            of the development lifecycle, from conceptualization to deployment.
+            I work across the full development lifecycle—from writing clean,
+             maintainable code to deploying and monitoring cloud-based applications.
+              I’m driven by continuous learning, innovation, 
+              and solving real-world engineering challenges.
           </p>
         </div>
         <div className="order-1 flex justify-center lg:order-2">
